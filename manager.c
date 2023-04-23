@@ -57,7 +57,14 @@ int loadData(Product *p){
 	FILE*fp;
 
 	//파일 내용을 읽어와서 배열에 값 추가하기
-
+	fp= fopen("product.txt","rt");
+    	while(!feof(fp))
+    	{
+        	fscanf(fp, "%[^0123456789]s", p[count].name);
+        	fscanf(fp, "%d ", &p[count].weight);
+        	fscanf(fp, "%d\n", &p[count++].price);
+    	}
+    	fclose(fp);	
 
 
 
